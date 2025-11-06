@@ -1,0 +1,32 @@
+# --- Système ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# --- Dossiers inutiles ---
+node_modules/
+vendor/
+dist/
+build/
+tmp/
+.cache/
+*.log
+
+# --- Outils de dev ---
+.env
+.env.local
+.idea/
+.vscode/
+*.code-workspace
+
+# --- Archives / backups ---
+*.zip
+*.tar.gz
+*.bak
+*.old
+*.swp
+
+# --- Images / tests temporaires ---
+assets/images/temp/
+assets/images/test/
