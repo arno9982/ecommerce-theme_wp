@@ -1,10 +1,31 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template principal
+ */
 
-<h2>Bienvenue sur notre site e-commerce</h2>
+get_header(); ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <h3><?php the_title(); ?></h3>
-  <?php the_content(); ?>
-<?php endwhile; endif; ?>
+<main>
+    <div class="container">
+        <?php
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+        ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <h1><?php the_title(); ?></h1>
+                <div class="entry-content">
+                    <?php the_content(); ?>
+                </div>
+            </article>
+        <?php
+            endwhile;
+        else :
+        ?>
+            <p><?php _e('Aucun contenu trouvé.', 'eazyshop'); ?></p>
+        <?php
+        endif;
+        ?>
+    </div>
+</main>
 
 <?php get_footer(); ?>
