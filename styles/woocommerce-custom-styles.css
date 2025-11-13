@@ -1,0 +1,676 @@
+/**
+ * EAZYSHOP - Styles personnalisés WooCommerce
+ * Ce fichier surcharge les styles WooCommerce par défaut pour correspondre au design statique
+ * À placer dans: /wp-content/themes/votre-theme/assets/css/woocommerce-custom.css
+ */
+
+/* ============================================
+   RÉINITIALISATION DES STYLES WOOCOMMERCE
+   ============================================ */
+
+   /**
+ * FIX URGENT - Forcer la grille 3 colonnes
+ * DOIT ÊTRE EN PREMIER
+ */
+
+/* OVERRIDE TOTAL de WooCommerce */
+.woocommerce .products,
+.woocommerce ul.products,
+.woocommerce-page .products,
+.woocommerce-page ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* Supprimer TOUS les floats */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    clear: none !important;
+}
+
+/* Container flex */
+main.product-page-main,
+.product-page-main {
+    display: flex !important;
+    gap: 40px !important;
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.product-list-container {
+    flex: 1 !important;
+    width: 100%;
+}
+
+/* Forcer la largeur complète */
+.woocommerce,
+.woocommerce-page {
+    width: 100%;
+}
+
+/* Supprimer les styles par défaut de WooCommerce */
+.woocommerce-page .woocommerce,
+.woocommerce-page .woocommerce-info,
+.woocommerce-page .woocommerce-message {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.woocommerce ul.products {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* ============================================
+   STRUCTURE DE LA PAGE (Archive/Shop)
+   ============================================ */
+
+.product-page-main {
+    display: flex;
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* ============================================
+   SIDEBAR (Catégories & Filtres)
+   ============================================ */
+
+.sidebar {
+    width: 280px;
+    background-color: #8f7a9d;
+    color: white;
+    padding: 25px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    font-weight: 500;
+    color: white;
+}
+
+/* Catégories WooCommerce */
+.sidebar .widget_product_categories ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.sidebar .widget_product_categories ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sidebar .widget_product_categories ul li a {
+    color: white !important;
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+    transition: background-color 0.2s, padding-left 0.2s;
+}
+
+.sidebar .widget_product_categories ul li a:hover {
+    background-color: #8e24aa;
+    padding-left: 5px;
+}
+
+.sidebar .widget_product_categories .count {
+    color: rgba(255, 255, 255, 0.7);
+    float: right;
+}
+
+.sidebar hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+/* Widgets de filtres */
+.sidebar .widget {
+    margin-bottom: 25px;
+    color: white;
+}
+
+.sidebar .widget .widgettitle,
+.sidebar .widget h2,
+.sidebar .widget h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: white;
+}
+
+/* Filtre de prix WooCommerce */
+.sidebar .widget_price_filter {
+    color: white;
+}
+
+.sidebar .widget_price_filter .price_slider {
+    margin-bottom: 1em;
+}
+
+.sidebar .widget_price_filter .price_slider_amount {
+    text-align: left;
+    line-height: 2.4;
+}
+
+.sidebar .widget_price_filter .price_slider_amount .button {
+    float: right;
+    padding: 5px 15px;
+    background: #8e24aa;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.sidebar .widget_price_filter .price_slider_amount .button:hover {
+    background: #7b1fa2;
+}
+
+.sidebar .widget_price_filter .price_label {
+    color: white;
+    font-size: 0.9em;
+}
+
+.sidebar .widget_price_filter .ui-slider {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    height: 6px;
+}
+
+.sidebar .widget_price_filter .ui-slider .ui-slider-range {
+    background: #8e24aa;
+}
+
+.sidebar .widget_price_filter .ui-slider .ui-slider-handle {
+    background: white;
+    border: 2px solid #8e24aa;
+    width: 16px;
+    height: 16px;
+    top: -5px;
+    cursor: pointer;
+}
+
+/* Filtre par attributs (layered nav) */
+.sidebar .widget_layered_nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.sidebar .widget_layered_nav ul li {
+    margin-bottom: 8px !important;
+}
+
+.sidebar .widget_layered_nav ul li a {
+    color: white !important;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    transition: background-color 0.2s;
+}
+
+.sidebar .widget_layered_nav ul li a:hover {
+    background-color: #8e24aa;
+}
+
+.sidebar .widget_layered_nav ul li.chosen a {
+    background-color: #8e24aa;
+    font-weight: bold;
+}
+
+.sidebar .widget_layered_nav .count {
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 5px;
+}
+
+/* ============================================
+   CONTENU PRINCIPAL (Liste des produits)
+   ============================================ */
+
+.product-list-container {
+    flex-grow: 1;
+}
+
+.product-list-container h1,
+.woocommerce-products-header h1 {
+    font-size: 2em;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Barre de tri */
+.woocommerce-ordering {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.woocommerce-ordering select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+/* Message "Showing X results" */
+.woocommerce-result-count {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   GRILLE DES PRODUITS
+   ============================================ */
+
+.product-grid,
+.woocommerce ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* FIXE 3 colonnes */
+    gap: 40px !important; /* Plus d'espace entre les cartes */
+    margin-bottom: 40px !important;
+}
+
+/* Supprimer les styles par défaut de WooCommerce */
+.woocommerce ul.products li.product {
+    float: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    clear: none !important;
+}
+
+/* ============================================
+   CARTE PRODUIT
+   ============================================ */
+
+.product-card,
+.woocommerce ul.products li.product {
+    background-color: white !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08) !important;
+    transition: transform 0.3s, box-shadow 0.3s !important;
+    overflow: hidden !important;
+    text-align: left !important;
+    border: none !important;
+}
+
+.product-card:hover,
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Lien de la carte */
+.product-card .product-link,
+.woocommerce ul.products li.product a {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
+}
+
+/* ============================================
+   IMAGE DU PRODUIT
+   ============================================ */
+
+.product-card img,
+.woocommerce ul.products li.product img {
+    width: 100% !important;
+    height: 400px !important; /* Plus haute que 350px */
+    object-fit: cover !important;
+    display: block !important;
+    border-bottom: 1px solid #eee !important;
+    margin: 0 !important;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__link {
+    display: block;
+}
+
+/* ============================================
+   DÉTAILS DE LA CARTE
+   ============================================ */
+
+.card-details,
+.woocommerce ul.products li.product .product-details {
+    padding: 20px !important; /* Plus de padding */
+}
+
+/* Tag de catégorie */
+.category-tag,
+.woocommerce ul.products li.product .product-category {
+    font-size: 0.75em !important;
+    color: #999 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 5px !important;
+    display: block !important;
+}
+
+/* Titre du produit */
+.product-card h3,
+.woocommerce ul.products li.product h2,
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    font-size: 1.3em !important;
+    margin-bottom: 5px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: inherit !important;
+}
+
+/* ============================================
+   NOTE/RATING DU PRODUIT
+   ============================================ */
+
+.product-rating,
+.woocommerce .star-rating,
+.woocommerce ul.products li.product .star-rating {
+    margin-bottom: 10px !important;
+    font-size: 1.1em !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.product-rating .full {
+    color: gold !important;
+    letter-spacing: 1px;
+}
+
+.product-rating .empty {
+    color: #ccc !important;
+    letter-spacing: 1px;
+}
+
+.product-rating .review-count {
+    font-size: 0.8em;
+    color: #777;
+    margin-left: 5px;
+}
+
+/* Style WooCommerce par défaut pour les étoiles */
+.woocommerce .star-rating {
+    float: none !important;
+    color: gold !important;
+}
+
+.woocommerce .star-rating::before {
+    color: #ccc !important;
+}
+
+.woocommerce .star-rating span {
+    color: gold !important;
+}
+
+/* ============================================
+   PRIX DU PRODUIT
+   ============================================ */
+
+.product-card .price,
+.woocommerce ul.products li.product .price {
+    font-size: 1.8em !important; /* Plus gros */
+    color: #c2185b !important;
+    font-weight: 700 !important;
+    margin-top: 10px !important;
+    display: block !important;
+}
+
+/* Ajouter les astérisques autour du prix */
+.product-card .price::before,
+.woocommerce ul.products li.product .price::before {
+    content: '**';
+    margin-right: 2px;
+}
+
+.product-card .price::after,
+.woocommerce ul.products li.product .price::after {
+    content: '**';
+    margin-left: 2px;
+}
+
+.woocommerce ul.products li.product .price del {
+    color: #999 !important;
+    font-size: 0.7em !important;
+}
+
+.woocommerce ul.products li.product .price ins {
+    text-decoration: none !important;
+    color: #c2185b !important;
+}
+
+/* ============================================
+   BOUTON AJOUTER AU PANIER
+   ============================================ */
+
+.woocommerce ul.products li.product .button,
+.woocommerce ul.products li.product .add_to_cart_button {
+    width: 100%;
+    background-color: #6a1b9a !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 20px !important;
+    margin-top: 10px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+.woocommerce ul.products li.product .button:hover,
+.woocommerce ul.products li.product .add_to_cart_button:hover {
+    background-color: #8e24aa !important;
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.pagination,
+.woocommerce-pagination {
+    text-align: center !important;
+    margin-top: 40px !important;
+}
+
+.pagination a,
+.woocommerce-pagination .page-numbers {
+    color: #333 !important;
+    padding: 10px 18px !important;
+    text-decoration: none !important;
+    border: 1px solid #ddd !important;
+    margin: 0 5px !important;
+    display: inline-block !important;
+    transition: background-color 0.2s, color 0.2s !important;
+}
+
+.pagination a.active,
+.woocommerce-pagination .page-numbers.current {
+    background-color: #6a1b9a !important;
+    color: white !important;
+    border: 1px solid #6a1b9a !important;
+    font-weight: bold !important;
+}
+
+.pagination a:hover:not(.active),
+.woocommerce-pagination .page-numbers:hover {
+    background-color: #eee !important;
+}
+
+/* ============================================
+   MESSAGES WOOCOMMERCE
+   ============================================ */
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+    border-left: 4px solid #6a1b9a !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .product-page-main {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+    
+    .product-grid,
+    .woocommerce ul.products {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid,
+    .woocommerce ul.products {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    }
+    
+    .product-card img,
+    .woocommerce ul.products li.product img {
+        height: 250px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid,
+    .woocommerce ul.products {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================
+   AJUSTEMENTS SUPPLÉMENTAIRES POUR IMAGE 2
+   ============================================ */
+
+/* Container plus large */
+.product-list-container {
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+/* Espacements généreux */
+.product-page-main {
+    gap: 40px !important;
+}
+
+/* Cartes plus grandes et espacées */
+.product-card,
+.woocommerce ul.products li.product {
+    min-height: 550px; /* Hauteur minimale pour les grandes cartes */
+}
+
+/* Titre du produit plus gros */
+.product-card h3,
+.woocommerce ul.products li.product h2,
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    font-size: 1.5em !important; /* Plus gros */
+    margin-bottom: 8px !important;
+    white-space: normal !important; /* Permet le retour à la ligne */
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+
+/* Tag catégorie plus visible */
+.category-tag,
+.woocommerce ul.products li.product .product-category {
+    font-size: 0.85em !important;
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+}
+
+/* Étoiles de notation plus grandes */
+.product-rating,
+.woocommerce .star-rating {
+    font-size: 1.2em !important;
+    margin-bottom: 12px !important;
+}
+
+.product-rating .stars {
+    font-size: 1.1em !important;
+}
+
+/* Prix encore plus visible */
+.product-card .price,
+.woocommerce ul.products li.product .price {
+    font-size: 2em !important;
+    margin-top: 12px !important;
+}
+
+/* ============================================
+   COMPATIBILITÉ AVEC LE JAVASCRIPT
+   ============================================ */
+
+/* Support pour le badge du panier */
+.btn-cart .nb-cart {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 1.75rem;
+    padding: 0.25rem;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: -25%;
+    right: -30%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+/* Modal styles (pour compatibilité avec product.js) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 2rem;
+}
+
+.modal-wrap {
+    background: #fff;
+    max-height: 90vh;
+    overflow: auto;
+    width: min(980px, 96vw);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
