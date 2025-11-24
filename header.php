@@ -6,7 +6,9 @@
     <?php wp_head(); ?> 
 </head>
 <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
+    <?php wp_body_open(); 
+    $shop_page_url = function_exists('wc_get_page_id') ? get_permalink( wc_get_page_id( 'shop' ) ) : '#';
+    ?>
 
     <header>
         <div class="promo-box">
@@ -21,7 +23,7 @@
                     <span>&nbsp;OFF</span>
                 </div>
                 <div class="promo-third">
-                    <a href="" class="btn-shop">
+                    <a href="<?php echo esc_url( $shop_page_url ); ?>" class="btn-shop">
                         Shop Now
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
                             <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
@@ -66,15 +68,18 @@
         <div class="menu-box">
             <div class="container">
                 <div class="menu-first">
-                    <?php 
-                    // RÉINTÉGRATION DU MENU DE NAVIGATION DYNAMIQUE
-                    wp_nav_menu( array(
-                        'theme_location' => 'primary-menu', // Assurez-vous d'avoir bien enregistré 'primary-menu' dans functions.php
-                        'container'      => 'nav', // Génère <nav class="menu-first">...</nav>
-                        'fallback_cb'    => false, // N'affiche rien si le menu n'est pas assigné
-                    ) );
-                    ?>
-                </div>
+    <nav class="main-nav" aria-label="Menu principal">
+        <?php
+        wp_nav_menu( array(
+            'theme_location' => 'primary',
+            'container'      => false,
+            'menu_class'     => 'main-menu',   // ← LÀ EST LA CLÉ !!!
+            'fallback_cb'    => '__return_false',
+            'depth'          => 3,
+        ) );
+        ?>
+    </nav>
+</div>
                 <div class="menu-second">
                     <span><i class="fas fa-globe"></i></span>
                     <select name="lang" id="lang">

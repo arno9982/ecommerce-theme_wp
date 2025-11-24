@@ -1,3 +1,6 @@
+<?php
+$home_page = get_page_by_title( 'Home' );
+$home_page_url = $home_page ? get_permalink( $home_page->ID ) : '#';?>
 </main>
     <footer>
         <div class="container">
@@ -18,7 +21,7 @@
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                         Pariatur fugit, laborum voluptas assumenda fugiat similique reprehenderit dolor commodi,
                     </p>
-                    <a href="#" class="btn-general-discover">Discover <i class="fas fa-arrow-right"></i></a>
+                    <a href="<?php echo esc_url( $home_page_url ); ?>" class="btn-general-discover">Discover <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="links-box">
                     <p class="links-title">Useful Links</p>
