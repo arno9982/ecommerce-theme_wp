@@ -16,7 +16,7 @@ $about_page = get_page_by_title( 'About' );
 $about_page_url = $about_page ? get_permalink( $about_page->ID ) : '#';
 
 // 3. URI du répertoire du thème (pour les images, en supposant qu'elles sont dans /images/)
-$template_uri = get_template_directory_uri();
+$template_uri = get_stylesheet_directory_uri();
 ?>
 
 <main>
@@ -26,8 +26,8 @@ $template_uri = get_template_directory_uri();
                 <div class="first-box-first">
                     <h2>The best of shopping in one click is on <span>EazyShop</span></h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        libero commodi laboriosam assumenda quia dolorem impedit sed,
+                        Discover trendy clothing for everyone,
+                        designed to combine style, comfort, and quality.
                     </p>
                     <div class="hero-options">
                         <a href="<?php echo esc_url( $shop_page_url ); ?>" class="btn-hero-action-1">Shop now</a>
@@ -35,7 +35,7 @@ $template_uri = get_template_directory_uri();
                     </div>
                 </div>
                 <div class="first-box-second">
-                    <img src="<?php echo esc_url( $template_uri ); ?>/images/camera.png" alt="Cloth Image">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/shot-man.jpg" alt="Cloth Image">
                 </div>
             </div>
             <div class="second-box" style="grid-area: second;">
@@ -107,28 +107,19 @@ $template_uri = get_template_directory_uri();
         </section>
         <section class="present-section">
             <div class="illustration-box">
-                <img src="<?php echo esc_url( $template_uri ); ?>/images/card-2.jpg" alt="Illustration">
+                <img src="<?php echo esc_url( $template_uri ); ?>/images/sunflo.jpg" alt="Illustration">
             </div>
             <div class="present-content">
                 <h2>What is <span>EazyShop</span> ?</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Assumenda, nisi ad error minus ex totam molestiae aliquam saepe,
-                    aliquid voluptate odit maiores corrupti neque 
-                    cum est ratione cumque fugit adipisci!
+                    EazyShop is a Cameroonian online fashion store dedicated to quality and simplicity. We bring together the best African and urban styles to meet every fashion desire.
                 </p>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Assumenda, nisi ad error minus ex totam molestiae aliquam saepe,
-                    aliquid voluptate odit maiores corrupti neque 
-                    cum est ratione cumque fugit adipisci!
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Assumenda, nisi ad error minus ex totam molestiae aliquam saepe,
-                    aliquid voluptate odit maiores corrupti neque 
-                    cum est ratione cumque fugit adipisci!
-                </p>
+                        We collaborate with local and international designers to offer you unique, elegant, and affordable collections.
+                    </p>
+                    <p>
+                        With EazyShop, you can explore, compare, and buy your favorite clothes without leaving your home.
+                    </p>
                 <p class="present-options">
                     <a href="<?php echo esc_url( $shop_page_url ); ?>" class="btn-present-action-1">Discover</a>
                     <a href="#services-section" class="btn-present-action-2">See More</a>
@@ -141,12 +132,11 @@ $template_uri = get_template_directory_uri();
                 <div class="service">
                     <div class="image-box">
                         <a href="<?php echo esc_url( $shop_page_url ); ?>">
-                            <img src="<?php echo esc_url( $template_uri ); ?>/images/card-2.jpg" alt="Services Image">
+                            <img src="<?php echo esc_url( $template_uri ); ?>/images/posing.jpg" alt="Services Image">
                         </a>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        laborum unde dolores.
+                        Women’s collection — dresses, sets, and accessories.
                         <br>
                         <span>500+ differents styles available</span>
                     </p>
@@ -155,12 +145,11 @@ $template_uri = get_template_directory_uri();
                 <div class="service">
                     <div class="image-box">
                         <a href="<?php echo esc_url( $shop_page_url ); ?>">
-                            <img src="<?php echo esc_url( $template_uri ); ?>/images/card-2.jpg" alt="Services Image">
+                            <img src="<?php echo esc_url( $template_uri ); ?>/images/ornament.jpg" alt="Services Image">
                         </a>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        laborum unde dolores.
+                        Men’s fashion — shirts, jackets, and shoes.
                         <br>
                         <span>500+ differents styles available</span>
                     </p>
@@ -169,12 +158,11 @@ $template_uri = get_template_directory_uri();
                 <div class="service">
                     <div class="image-box">
                         <a href="<?php echo esc_url( $shop_page_url ); ?>">
-                            <img src="<?php echo esc_url( $template_uri ); ?>/images/card-2.jpg" alt="Services Image">
+                            <img src="<?php echo esc_url( $template_uri ); ?>/images/life.jpg" alt="Services Image">
                         </a>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        laborum unde dolores.
+                        Comfortable and stylish outfits for children.
                         <br>
                         <span>500+ differents styles available</span>
                     </p>
@@ -183,12 +171,11 @@ $template_uri = get_template_directory_uri();
                 <div class="service">
                     <div class="image-box">
                         <a href="<?php echo esc_url( $shop_page_url ); ?>">
-                            <img src="<?php echo esc_url( $template_uri ); ?>/images/card-2.jpg" alt="Services Image">
+                            <img src="<?php echo esc_url( $template_uri ); ?>/images/zipper.jpg" alt="Services Image">
                         </a>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        laborum unde dolores.
+                     Complete your look with our trendy accessories
                         <br>
                         <span>500+ differents styles available</span>
                     </p>
@@ -197,12 +184,11 @@ $template_uri = get_template_directory_uri();
                 <div class="service">
                     <div class="image-box">
                         <a href="<?php echo esc_url( $shop_page_url ); ?>">
-                            <img src="<?php echo esc_url( $template_uri ); ?>/images/card-2.jpg" alt="Services Image">
+                            <img src="<?php echo esc_url( $template_uri ); ?>/images/clothing.jpg" alt="Services Image">
                         </a>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        laborum unde dolores.
+                        Stylish and breathable sportswear.
                         <br>
                         <span>500+ differents styles available</span>
                     </p>
@@ -211,12 +197,11 @@ $template_uri = get_template_directory_uri();
                 <div class="service">
                     <div class="image-box">
                         <a href="<?php echo esc_url( $shop_page_url ); ?>">
-                            <img src="<?php echo esc_url( $template_uri ); ?>/images/card-2.jpg" alt="Services Image">
+                            <img src="<?php echo esc_url( $template_uri ); ?>/images/clothes.jpg" alt="Services Image">
                         </a>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        laborum unde dolores.
+                       100% Cameroonian local creations.
                         <br>
                         <span>500+ differents styles available</span>
                     </p>
@@ -236,9 +221,7 @@ $template_uri = get_template_directory_uri();
                         <i class="fas fa-star"></i>
                     </span>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, 
-                        adipisicing elit. Explicabo, 
-                        iure totam! Quia voluptas a tenetu.
+                        “The prices are affordable and the customer service is very responsive. I highly recommend it!”
                     </p>
                     <img src="<?php echo esc_url( $template_uri ); ?>/images/user.jpeg" alt="User">
                     <span class="user">Martin KOUAM</span>
@@ -252,11 +235,10 @@ $template_uri = get_template_directory_uri();
                         <i class="fas fa-star"></i>
                     </span>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, 
-                        adipisicing elit. Explicabo, 
-                        iure totam! Quia voluptas a tenetu.
+                        “I ordered a dress and received it in 2 days! The quality is excellent. Thank you, EazyShop.”
+                        </p>
                     </p>
-                    <img src="<?php echo esc_url( $template_uri ); ?>/images/user.jpeg" alt="User">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/wireless.jpg" alt="User">
                     <span class="user">Martin KOUAM</span>
                 </div>
                 <div class="testimony">
@@ -268,12 +250,10 @@ $template_uri = get_template_directory_uri();
                         <i class="fas fa-star"></i>
                     </span>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, 
-                        adipisicing elit. Explicabo, 
-                        iure totam! Quia voluptas a tenetu.
+                        “Modern and unique products. EazyShop has become my favorite site.”
                     </p>
-                    <img src="<?php echo esc_url( $template_uri ); ?>/images/user.jpeg" alt="User">
-                    <span class="user">Martin KOUAM</span>
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/filming.jpg" alt="User">
+                    <span class="user">RAPHAELLO SANZIO</span>
                 </div>
             </div>
         </section>
@@ -308,5 +288,6 @@ $template_uri = get_template_directory_uri();
         </section>
     </div>
 </main>
-     
+ 
+
 <?php get_footer(); ?>

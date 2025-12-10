@@ -40,12 +40,15 @@ function eazyshop_all_assets() {
 
     // 2. Normalize
     wp_enqueue_style('eazyshop-normalize', $template_uri . '/styles/normalize-perso.css', array(), '1.0');
-
-    // 3. Style de BASE (Doit être chargé partout)
-    wp_enqueue_style('eazyshop-base', $template_uri . '/base.css', array('eazyshop-normalize'), '1.0');
+    wp_enqueue_style('eazyshop-about', $template_uri . '/styles/about.css', array('eazyshop-style'), '1.0');
+    // 3. Style de BASE (Handle unique : 'eazyshop-base-style')
+    wp_enqueue_style('eazyshop-base-style', $template_uri . '/base.css', array('eazyshop-normalize'), '1.0');
     
-    // 4. Style principal du thème (stylesheet_uri)
-    wp_enqueue_style('eazyshop-style', get_stylesheet_uri(), array('eazyshop-base'), '1.0');
+    // 4. Style Responsive (Handle unique : 'eazyshop-responsive-style')
+    wp_enqueue_style('eazyshop-responsive-style', $template_uri . '/styles/responsive.css', array('eazyshop-base-style'), '1.0');
+    
+    // 5. Style principal du thème (stylesheet_uri) - Dépendance au Responsive
+    wp_enqueue_style('eazyshop-style', get_stylesheet_uri(), array('eazyshop-responsive-style'), '1.0');
     
     // --- STYLES CONDITIONNELS ---
     
@@ -55,17 +58,20 @@ function eazyshop_all_assets() {
     }
     
     // Styles pour la page Contact
-    if (is_page_template('page-contact.php') || is_page('contact')) { // Ajustez la condition si nécessaire
+    if (is_page_template('page-contact.php') || is_page('contact')) {
         wp_enqueue_style('eazyshop-contact', $template_uri . '/styles/contact.css', array('eazyshop-style'), '1.0');
     }
     
     // Styles pour la page About Us
-    if (is_page('about-us') || is_page_template('about_us.php')) { // Ajustez la condition si nécessaire
+    if (is_page('about-us') || is_page_template('about_us.php')) {
+        // Le about.css est maintenant chargé uniquement ici, avec un handle unique
         wp_enqueue_style('eazyshop-about', $template_uri . '/styles/about.css', array('eazyshop-style'), '1.0');
     }
 
     // Styles et Scripts Spécifiques aux pages WooCommerce
     if (is_shop() || is_product_category() || is_product_tag() || is_product()) {
+        
+        // ... (Le reste du code WooCommerce est correct) ...
         
         // Product CSS (votre ancien fichier product.css)
         wp_enqueue_style(
@@ -83,7 +89,7 @@ function eazyshop_all_assets() {
             '1.0.0'
         );
         
-        // Force 3 columns layout (surchargé par le CSS inline en section 7.4)
+        // Force 3 columns layout
         wp_enqueue_style(
             'woocommerce-force-layout',
             $template_uri . '/styles/woocommerce-force-3-columns.css',
@@ -102,34 +108,34 @@ function eazyshop_all_assets() {
         
         // Passer les données du panier au JavaScript
         if (class_exists('WooCommerce') && WC()->cart) {
-             wp_localize_script('product-js', 'eazyshopCart', array(
+            wp_localize_script('product-js', 'eazyshopCart', array(
                 'ajaxurl' => admin_url('admin-ajax.php'),
                 'cart_count' => WC()->cart->get_cart_contents_count(),
                 'cart_url' => wc_get_cart_url(),
                 'checkout_url' => wc_get_checkout_url()
             ));
         }
-       
     }
+    
     // --- SCRIPTS GLOBAUX ---
-
-// --- SCRIPTS GLOBAUX ET CONDITIONNELS (AJOUTS ICI) ---
     
     // Script Global (votre script.js)
-    wp_enqueue_script('eazyshop-script', $template_uri . '/javascript/script.js', array('jquery'), '1.0', true);
-
+    wp_enqueue_script('eazyshop-script', $template_uri . '/javascript/product.js', array('jquery'), '1.0', true);
+    
+    // Script Responsive (Handle unique : 'eazyshop-responsive-js')
+    wp_enqueue_script('eazyshop-responsive-js', $template_uri . '/javascript/responsive.js', array('jquery', 'eazyshop-script'), '1.0', true);
 
     // 🚀 AJOUT DU SCRIPT POUR LA PAGE CONTACT 🚀
-    // Assurez-vous que le fichier est bien situé dans /javascript/contact.js
     if (is_page_template('page-contact.php') || is_page('Contact')) {
+        // ... (Ce bloc est correct) ...
         wp_enqueue_script(
             'eazyshop-contact-js', 
             $template_uri . '/javascript/contact.js', 
-            array('jquery', 'eazyshop-script'), // Dépendance à jQuery et votre script global
+            array('jquery', 'eazyshop-script'), 
             '1.0', 
-            true // Charge dans le pied de page
+            true
         );
-        // Localisation pour l'AJAX du formulaire de contact
+
         wp_localize_script('eazyshop-contact-js', 'eazyshopAjax', array(
             'ajaxurl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('eazyshop_contact_nonce')
@@ -137,21 +143,23 @@ function eazyshop_all_assets() {
     }
     
     // 🚀 AJOUT DU SCRIPT POUR LA PAGE ABOUT US 🚀
-    // Assurez-vous que le fichier est bien situé dans /javascript/about.js
     if (is_page('about-us') || is_page_template('about_us.php')) {
+        // ATTENTION : Correction du nom de fichier script : 'scrpt.js' -> 'about.js' (ou le nom réel)
+        // Je suppose que le fichier est 'about.js' car vous chargez 'about.css'.
         wp_enqueue_script(
             'eazyshop-about-js', 
-            $template_uri . '/javascript/scrpt.js', 
-            array('jquery', 'eazyshop-script'), 
+            $template_uri . '/javascript/about.js', // J'ai corrigé 'scrpt.js' en 'about.js'
+            array('jquery', 'eazyshop-about'), 
             '1.0', 
             true
         );
     }
 }
-add_action('wp_enqueue_scripts', 'eazyshop_all_assets');
+add_action('wp_enqueue_scripts', 'eazyshop_all_assets'); // Un seul appel ici
 
-// Remplacer toutes les anciennes actions 'wp_enqueue_scripts' par celle-ci
-add_action('wp_enqueue_scripts', 'eazyshop_all_assets');
+// ================================================
+// ... (Reste du code à partir de la section 3)
+// ================================================
 
 // ================================================
 // ... (Reste du code à partir de la section 3)

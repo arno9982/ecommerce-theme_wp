@@ -4,7 +4,9 @@
  * Description: Page template pour la page de contact
  */
 
-get_header(); ?>
+get_header(); 
+$template_uri = get_template_directory_uri();
+?>
 
 <main>
         <section class="page-title-section">
@@ -20,37 +22,8 @@ get_header(); ?>
                     <p>We always aim to please our customers by providing the best products and services. Our team is passionate about technology and dedicated to helping you find the perfect setup.</p>
                 </div>
                 <div class="col-image">
-                    <img src="images/image_bureau.png" alt="Intérieur du magasin d'informatique">
-                </div>
-            </div>
-        </section>
-
-        <section class="about-section bg-light">
-            <div class="container two-col-layout row-reverse">
-                <div class="col-text">
-                    <div class="section-title">
-                        <i class="icon fa-solid fa-comment-dots"></i>
-                        <h2>shop.com</h2>
-                    </div>
-                    <p>We believe in quality and performance. Our shop features a curated selection of the latest technology, ensuring you get the best value for your money. Browse our extensive range of products today.</p>
-                </div>
-                <div class="col-image">
-                    <img src="images/image_clavier.png" alt="Clavier mécanique">
-                </div>
-            </div>
-        </section>
-
-        <section class="about-section bg-dark">
-            <div class="container two-col-layout">
-                <div class="col-text">
-                    <div class="section-title">
-                        <i class="icon fa-solid fa-shield-halved"></i>
-                        <h2>Now You're in Safe Hands</h2>
-                    </div>
-                    <p>From purchase to setup, our experts are here to support you. We offer comprehensive warranties and customer service to ensure you're always covered. Your peace of mind is our priority.</p>
-                </div>
-                <div class="col-image">
-                    <img src="images/image_pc_vert.png" alt="PC Gamer avec éclairage vert">
+                    
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/our_product.jpeg" alt="visuel game de produits vendus">
                 </div>
             </div>
         </section>
@@ -62,10 +35,11 @@ get_header(); ?>
                         <i class="icon fa-solid fa-comment-dots"></i>
                         <h2>The Highest Quality of Products</h2>
                     </div>
-                    <p>Every component is tested for reliability and performance. We partner with leading brands to bring you cutting-edge technology that lasts. Quality is not just a promise, it's our standard.</p>
+                    <p>Our commitment to exceptional quality ensures that every piece of clothing is crafted with care, using premium materials to deliver styl and comfort that lasts.</p>
                 </div>
                 <div class="col-image">
-                    <img src="images/image_pc_blanc.png" alt="PC Gamer blanc avec éclairage RGB">
+                    
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/image_quality.jpeg" alt="image illustrant la qualite des produits">
                 </div>
             </div>
         </section>
@@ -78,9 +52,34 @@ get_header(); ?>
                         <h2>We Deliver To Any Regions</h2>
                     </div>
                     <p>No matter where you are, we'll get your order to you. Our logistics network ensures fast, safe, and reliable shipping to all regions. Track your order from our warehouse to your doorstep.</p>
+                    
                 </div>
                 <div class="col-image">
-                    <img src="images/image_pc_violet.png" alt="PC Gamer blanc avec éclairage bleu">
+                    
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/Tom_Suscriber.jfif" alt="image d'un client satisfait qui donne un temoignage">
+                </div>
+            </div>
+        </section>
+        <h1 class="brand">Our brands</h1>
+        <section class="logo-visuel">
+            <div class="logo-slider" aria-hidden="false">
+                <div class="logo-track">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/puma.jpeg" alt="puma logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/nike.jpeg" alt="nike logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/adidas.jpeg" alt="adidas logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/louis.jpeg" alt="louis logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/nike.jpeg" alt="nike logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/adidas.jpeg" alt="adidas logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/louis.jpeg" alt="louis logo">
+                </div>
+                <div class="logo-track" aria-hidden="true">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/puma.jpeg" alt="puma logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/nike.jpeg" alt="nike logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/adidas.jpeg" alt="adidas logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/louis.jpeg" alt="louis logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/nike.jpeg" alt="nike logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/adidas.jpeg" alt="adidas logo">
+                    <img src="<?php echo esc_url( $template_uri ); ?>/images/about/louis.jpeg" alt="louis logo">
                 </div>
             </div>
         </section>
@@ -89,7 +88,7 @@ get_header(); ?>
             <div class="container">
                 <i class="icon-quote fa-solid fa-quote-left"></i>
                 <blockquote>
-                    "I'm extremely satisfied with my purchase. The delivery was fast, and the PC performs flawlessly. The customer service team was also very helpful in answering my questions."
+                    "Excatly as described! The product matches the pictures. Good values for money. Thanks!"
                 </blockquote>
                 <p class="author">- Tom H.</p>
             </div>
